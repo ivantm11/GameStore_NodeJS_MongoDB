@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="card text-white bg-dark mt-3 mb-3">
+        <div class="card-header"><h3>Compras</h3></div>
+        <div class="card-body">
+            <h5 class="card-title">Aquí puedes consultar tus compras con nosotros. <3</h5>
+            <div class="card text-dark border-dark">
+                {{# each orders }}
+                    <div class="card-body">
+                        <h5 class="card-title">Pedido {{@index}}</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        {{# each this.items }}
+                            <li class="list-group-item"><p>{{ this.item.title }} 
+                                <span class="badge badge-warning badge-pill">{{ this.qty }} piezas </span>
+                            <span class="badge badge-danger badge-pill float-right p-2">Costo $ {{ this.price }}</span></p></li>
+                        {{/each}}
+                    </ul>
+                    <div class="card-body">
+                        <h5 class="card-title float-right text-white"><span class="badge badge-success badge-pill float-right p-3">Costo del pedido $ {{ this.cart.totalPrice }}</span></h5>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>

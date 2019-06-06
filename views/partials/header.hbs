@@ -1,0 +1,42 @@
+
+<nav class="navbar navbar-dark bg-dark sticky-top">
+  <a href="/"><strong class="navbar-brand" href="/">Inicio</strong></a>
+  <!--
+  <a><i class="fas fa-tools"></i> En mantenimiento <i class="fas fa-tools"></i></a>
+  
+  <a href="http://10.104.105.65:3000/user/signup"><i class="fas fa-store"></i> Tienda Roy</a>
+  <a href="http://10.104.104.235:8080/"><i class="fas fa-store"></i> Tienda Luis</a>
+  <a href="http://10.104.105.64:8080/LuxElectronica/index.jsp"><i class="fas fa-store"></i> Tienda Laura</a>
+  <a href="#"><i class="fas fa-store"></i> Tienda Alejandro</a>
+  <a href="http://10.104.105.233/proyectos/seguridad/login.php"><i class="fas fa-store"></i> Tienda Eduardo</a>
+  <a href="#"><i class="fas fa-store"></i> Tienda Anubis</a>
+  <a href="#"><i class="fas fa-store"></i> Tienda Adrián</a>
+  -->
+  <form class="form-inline">
+    <!-- Example single button -->
+    <a class="btn btn-success ml-2 mr-2" href="/shopping-cart/">
+      <i class="fas fa-shopping-cart"></i>
+      Carrito
+      <span class="badge badge-light badge-pill">{{session.cart.totalQty}}</span>
+    </a>
+    <div class="btn-group ml-2 mr-2">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="far fa-user"></i> Cuenta
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+            {{# if login}}
+              <a class="dropdown-item" href="/shopping-cart/"><i class="fas fa-shopping-cart"></i> Carrito 
+                <span class="badge badge-danger badge-pill">{{session.cart.totalQty}}</span>
+              </a>
+              <a class="dropdown-item" href="/user/profile"><i class="fas fa-shopping-bag"></i> Compras</a>
+              <a class="dropdown-item" href="/user/links"><i class="fas fa-store-alt"></i> Tiendas externas</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/user/logout"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+            {{ else }}
+              <a class="dropdown-item" href="/user/signup"><i class="fas fa-user-plus"></i> Registrarse</a>
+              <a class="dropdown-item" href="/user/signin"><i class="fas fa-sign-in-alt"></i> Iniciar sesión</a>
+            {{/if}}
+        </div>
+    </div>  
+  </form>
+</nav>

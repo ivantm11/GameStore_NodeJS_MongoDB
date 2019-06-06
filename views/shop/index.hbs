@@ -1,0 +1,30 @@
+<div class="row justify-content-md-center">
+  <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
+    <div id="success" class="alert alert-success alert-dismissible fade show" {{#if noMessages}}hidden{{/if}}>
+      {{ successMsg }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+{{# each products }}
+  <div class="row">
+    {{# each this }}
+      <div class="col-sm-6 col-md-4 mt-2 mb-2">
+        <div class="img-thumbnail text-center">
+          <img src="{{ this.imagePath }}" alt="..." class="img-responsive">
+          <div class="caption">
+            <h4>{{ this.title }}</h4>
+            <p class="description">{{ this.description }}</p>
+            <div class="clearfix">
+              <div class="price float-left">$ {{ this.price }}</div>
+              <a href="/add-to-cart/{{this._id}}" class="btn btn-success float-right" role="button">Añadir al carrito <i class="far fa-check-circle"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>  
+{{/each}}
